@@ -1,6 +1,6 @@
 name: POC Poetry
 
-on: pull_request
+on: push
 
 jobs:
   test:
