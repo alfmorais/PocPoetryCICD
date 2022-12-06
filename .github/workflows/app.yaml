@@ -31,5 +31,4 @@ jobs:
 
       - name: Running Test
         run: |
-          poetry shell
-          pytest
+          poetry run pytest -s
