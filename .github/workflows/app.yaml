@@ -28,7 +28,6 @@ jobs:
       - name: Poetry Install Requirements
         run: |
           poetry install
-          poetry shell
 
       - name: Running Test
         run: |
