@@ -1,0 +1,35 @@
+name: POC Poetry
+
+on: pull_request
+
+jobs:
+  test:
+    defaults:
+      run:
+        shell: bash
+
+    name: Testando Aplicação
+    runs-on: ubuntu-latest
+
+    # container:
+    #   image: ghcr.io/maistodos/kitkat:latest
+    #   credentials:
+    #     username: ${{ secrets.GHCR_USER }}
+    #     password: ${{ secrets.GHCR_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Poetry Install
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Poetry Install Requirements
+        run: |
+          poetry install
+          poetry shell
+
+      - name: Running Test
+        run: |
+          pytest -s
